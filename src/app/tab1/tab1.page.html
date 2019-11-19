@@ -1,0 +1,65 @@
+<ion-header no-border>
+    <ion-toolbar color="tertiary">
+      <ion-buttons slot="start">
+        <ion-button (click)="toggleMenu()">
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  <ion-title class="ion-text-capitalize ion-text-center">
+        namao
+  </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="mostrarPopo($event)">
+          <img class="icono" src="../../../assets/icon/icono.png">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" id="main">
+  <!-- buscador -->
+  <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+  <ion-row>
+    <ion-col>
+      <h3 color="tertiary"><b>Categorias </b><ion-icon name="gift"></ion-icon></h3>
+    </ion-col>
+  </ion-row>
+    <!-- slides -->
+  <ion-slides pager="false" [options]="slideOptions" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+    <ion-slide class="slide-1" *ngFor="let n of categorias">
+      <ion-card mode="ios">
+        <img src="{{n.imagen}}">
+       <ion-card-header>
+          <ion-card-title>{{n.titulo}}</ion-card-title>
+          <ion-icon [name]="n.icons"></ion-icon>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+    <!-- scroll -->
+    <h3 color="tertiary"><b>Productos </b><ion-icon name="cart"></ion-icon></h3>
+          <ion-list>
+            <ion-row>
+                <ion-col>
+                    <ion-card *ngFor="let prod of servicio.getContact">
+                        <ion-card-header>
+                          <ion-card-title>{{prod.nombre}}</ion-card-title>
+                          <ion-card-subtitle>{{prod.pais}}</ion-card-subtitle>
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                          <img [src]="prod.avatar" alt="" srcset="">
+                        </ion-card-content>
+                      </ion-card>
+                </ion-col>
+            </ion-row>     
+          </ion-list>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Cargando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-content>

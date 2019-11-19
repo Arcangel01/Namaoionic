@@ -1,0 +1,79 @@
+<ion-content>
+  <div class="container">
+    <div class="login">
+      <form (ngSubmit)="onLogin(fLogin)" #fLogin="ngForm">
+        <ion-grid style="padding: 0%;">
+          <ion-row>
+            <ion-col style="margin: -5%;">
+              <div>
+                <img src="../../assets/icon/icono.png" >
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="padding-bottom: 0%;">
+              <ion-list class="fond" style="padding-bottom: 0px;padding-top: 0px;">
+                <ion-item color=" rgba(255,255,255,0.4)">
+                  <ion-icon slot="start" color="light" name="mail"></ion-icon>
+                  <ion-input placeholder="Correo" type="email" name="email" [(ngModel)]="user.email" color="light" required></ion-input>
+                </ion-item>
+              </ion-list>
+              <ion-list class="fond" style="padding-bottom: 0px;padding-top: 0px;">
+                <ion-item color=" rgba(255,255,255,0.4)">
+                    <ion-icon slot="start" color="light" name="key"></ion-icon>
+                  <ion-input placeholder="Contraseña" name="password" type="password" [(ngModel)]="user.password" color="light" required></ion-input>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <div style="content: initial; padding-left: 23%;padding-right: 23%;margin-top: 5.5%;">
+          <ion-row>
+            <ion-col style="margin: 1%;padding: 1%;">
+              <ion-button type="submit"
+                          shape="round"
+                          fill="outline"
+                          color="light"
+                          expand="full"
+                          style="margin: 0%;padding: 0%;">
+                          Ingresar
+              </ion-button>
+            </ion-col>
+            <ion-col style="margin: 1%;padding: 1%;">
+              <ion-button shape="round"
+                          fill="outline"
+                          color="light"
+                          expand="full"
+                          routerLink="/registro"
+                          style="margin: 0%;padding: 0%;">
+                          Registro
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          </div>
+          <ion-row>
+            <ion-col style="padding-top: 1px;">
+              <ion-button type="submit"
+                          shape="round"                            
+                          color="danger"
+                          size="small"
+                          expand="full">
+                          <ion-icon slot="start" name="logo-google"></ion-icon>
+                          Google
+              </ion-button>
+            </ion-col>
+            <ion-col style="padding-top: 1px;">
+              <ion-button type="submit"
+                          shape="round"                           
+                          color="primary"
+                          size="small"
+                          expand="full">
+                          <ion-icon slot="start" name="logo-facebook"></ion-icon>
+                          Facebook
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </div>
+  </div>
+</ion-content>

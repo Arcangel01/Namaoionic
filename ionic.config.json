@@ -1,0 +1,7 @@
+{
+  "name": "ProjectNaMao",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
